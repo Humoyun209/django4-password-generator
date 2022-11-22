@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+</head>
+<body>
+<form action="{% url 'showPass' %}">
+    <h4>Length Password</h4>
+
+    <div class="form-check">
+        <input class="form-check-input" id="flexCheckChecked" type="checkbox" name="upper">
+        <label class="form-check-label">UpperCase</label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="digits">
+        <label class="form-check-label">Digits</label>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="character">
+        <label class="form-check-label">Character</label>
+    </div>
+
+    <select name="length" class="form-select form-select-sm" aria-label=".form-select-sm example">
+        {% for i in rang %}
+        <option value="{{ i }}">{{ i }}</option>
+        {% endfor %}
+    </select>
+
+    <p><button class="btn btn-primary" type="submit">Password</button></p>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</form>
+</body>
+</html>
